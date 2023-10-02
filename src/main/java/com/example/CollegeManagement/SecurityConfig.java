@@ -45,7 +45,7 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests( auth -> auth
-                        .antMatchers("/v2/api-docs","/swagger-ui.html").permitAll()
+                        .antMatchers("/webjars/**", "/swagger-ui.html", "/v2/api-docs", "/configuration/**", "/swagger-resources/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
